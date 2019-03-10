@@ -32,11 +32,11 @@ export default class AreYouSureScreen extends React.Component {
 
   componentDidMount = async () => {
     const latestPhoto = this.props.navigation.state.params.photo.photo.base64;
-
     const photos = await FileSystem.readDirectoryAsync(PHOTOS_DIR);
     this.setState({ photos });
     await this.handlePredict(latestPhoto);
   };
+
   renderPhoto = fileName => (
     <Photo
       key={fileName}
@@ -60,30 +60,8 @@ export default class AreYouSureScreen extends React.Component {
     }
   }
 
-  async handleSelectedFile(evt) {
-    console.log("Uploading");
-    var self = this;
-    var reader = new FileReader();
-    var file = evt.target.files[0];
-
-    reader.onload = function(upload) {
-      const newSelectedFile = upload.target.result.slice(
-        upload.target.result.indexOf(",") + 1
-      );
-      self.setState({ selectedFile: newSelectedFile });
-      self.handlePredict(self.state.selectedFile);
-    };
-    reader.readAsDataURL(file);
-    console.log("Uploaded");
-  }
-
   render() {
     const latestPhoto = this.props.navigation.state.params.photo;
-    // console.log("LATEST PHOTO", latestPhoto);
-    // console.log("PHOTO 0", this.state.photos[0]);
-    console.log("LATEST PHOTO DOT PHOTO", Object.keys(latestPhoto.photo));
-    console.log(latestPhoto.photo.uri);
-
     const uri = latestPhoto.photo.uri;
     const { navigate } = this.props.navigation;
     console.log();
