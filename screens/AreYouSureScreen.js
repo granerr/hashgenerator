@@ -3,7 +3,7 @@ import Clarifai from "clarifai";
 import baseStr from "./baseStr";
 
 import SuccessResults from "../components/SuccessResults";
-import FailureResults from "../components/FailureResults";
+// import FailureResults from "../components/FailureResults";
 
 import { Container, Text, Body } from "native-base";
 import { FileSystem } from "expo";
