@@ -1,7 +1,8 @@
-import React from "react";
-import { Text, View, TouchableOpacity, Button } from "react-native";
 import { Camera, Permissions } from "expo";
-export default class HomeScreen extends React.Component {
+import React, { Component } from "react";
+import { Container, Button, Text, Header, Body, Title } from "native-base";
+
+export default class HomeScreen extends Component {
   state = {
     hasCameraPermission: null,
     type: Camera.Constants.Type.back
@@ -16,28 +17,16 @@ export default class HomeScreen extends React.Component {
     const { navigate } = this.props.navigation;
 
     return (
-      <View>
-        <Button
-          title="Take A Picture"
-          color="#841584"
-          onPress={() => navigate("Camera")}
-        />
-        <Button
-          title="Take A Picture"
-          color="#841584"
-          onPress={() => navigate("Camera")}
-        />
-        <Button
-          title="Take A Picture"
-          color="#841584"
-          onPress={() => navigate("Camera")}
-        />
-        <Button
-          title="Take A Picture"
-          color="#841584"
-          onPress={() => navigate("Camera")}
-        />
-      </View>
+      <Container>
+        <Header>
+          <Title>Image Predictor Model</Title>
+        </Header>
+        <Body style={{ justifyContent: "center" }}>
+          <Button rounded onPress={() => navigate("Camera")}>
+            <Text>Take A Picture</Text>
+          </Button>
+        </Body>
+      </Container>
     );
   }
 }
