@@ -34,6 +34,9 @@ import expolib_v1.okhttp3.OkHttpClient;
 
 // Needed for `react-native link`
 // import com.facebook.react.ReactApplication;
+import com.calendarevents.CalendarEventsPackage;
+import com.ioddly.alarms.AlarmPackage;
+import com.liang.RNAlarmPackage;
 
 public class MainApplication extends ExpoApplication implements AppLoaderPackagesProviderInterface<ReactPackage> {
 
@@ -49,7 +52,10 @@ public class MainApplication extends ExpoApplication implements AppLoaderPackage
         // TODO: add native modules!
 
         // Needed for `react-native link`
-        // new MainReactPackage()
+        // new MainReactPackage(),
+            new CalendarEventsPackage(),
+            new AlarmPackage(),
+            new RNAlarmPackage()
     );
   }
 
