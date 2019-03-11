@@ -16,8 +16,9 @@ import {
   Platform,
   Button
 } from "react-native";
+
 import GalleryScreen from "./GalleryScreen";
-import AreYouSureScreen from "./AreYouSureScreen";
+import HashResultsScreen from "./HashResultsScreen";
 
 import {
   Ionicons,
@@ -172,20 +173,14 @@ export default class CameraScreen extends React.Component {
 
   handleMountError = ({ message }) => console.error(message);
 
-  // onPictureSaved = async photo => {
-  //   this.setState({ newPhotos: true, photo: photo });
-  //   console.log(this.state.newPhoto);
-  //   await FileSystem.moveAsync({
-  //     from: photo.uri,
-  //     to: `${FileSystem.documentDirectory}photos/${Date.now()}.jpg`
-  //   });
-  // };
-
   onPictureSaved = async photo => {
     const dateNow = Date.now();
     this.setState({
       newPhotos: true,
-      photo: { photo: photo, name: `${dateNow}.jpg` }
+      photo: {
+        photo: photo,
+        name: `${dateNow}.jpg`
+      }
     });
     await FileSystem.moveAsync({
       from: photo.uri,
@@ -242,18 +237,37 @@ export default class CameraScreen extends React.Component {
     });
   };
 
-  renderAreYouSure() {
+  renderHashResults() {
     const latestPhoto = this.state.photo;
     return (
-      <Button
-        title="Are You Sure?"
-        style={styles.areYouSure}
-        onPress={() =>
-          this.props.navigation.navigate("AreYouSure", {
-            photo: latestPhoto
-          })
-        }
-      />
+      <View>
+        <Text
+          style={{
+            textAlignVertical: "center",
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: 18,
+            margin: 10
+          }}
+        >
+          Are you sure?
+        </Text>
+        <Button
+          title="Retake"
+          color="#841584"
+          style={styles.hashResults}
+          onPress={() => this.props.navigation.navigate("Camera")}
+        />
+        <Button
+          title="Use"
+          style={styles.hashResults}
+          onPress={() =>
+            this.props.navigation.navigate("HashResults", {
+              photo: latestPhoto
+            })
+          }
+        />
+      </View>
     );
   }
 
@@ -439,7 +453,6 @@ export default class CameraScreen extends React.Component {
     </View>
   );
 
-  //NAVIGATE HERE TOO
   renderCamera = () => (
     <View style={{ flex: 1 }}>
       <Camera
@@ -473,8 +486,7 @@ export default class CameraScreen extends React.Component {
         {this.renderTopBar()}
         {this.renderBottomBar()}
       </Camera>
-      {/* {console.log(this.state)} */}
-      {this.state.newPhotos && this.renderAreYouSure(this.state.photo)}
+      {this.state.newPhotos && this.renderHashResults(this.state.photo)}
       {this.state.faceDetecting && this.renderFaces()}
       {this.state.faceDetecting && this.renderLandmarks()}
       {this.state.showMoreOptions && this.renderMoreOptions()}
@@ -516,7 +528,7 @@ const styles = StyleSheet.create({
     flex: 0.12,
     flexDirection: "row"
   },
-  areYouSure: {
+  hashResults: {
     paddingBottom: 45,
     backgroundColor: "transparent",
     alignSelf: "center",

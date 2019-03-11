@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
+    "@micabe/react-native-share-instagram": "^1.1.0",
     "clarifai": "^2.9.0",
     "expo": "^32.0.6",
     "expokit": "^32.0.7",
@@ -23,6 +24,7 @@
     "react-native-alarm": "^1.2.0",
     "react-native-alarms": "git+https://github.com/ioddly/react-native-alarms.git",
     "react-native-calendar-events": "^1.7.0",
+    "react-native-vector-icons": "^6.3.0",
     "react-navigation": "^3.0.9"
   },
   "devDependencies": {

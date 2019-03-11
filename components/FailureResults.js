@@ -14,7 +14,7 @@ import {
   Right
 } from "native-base";
 import { Image } from "react-native";
-
+import { lowConfidenceResults } from "./processResultsFunctions";
 import moment from "moment";
 
 import { FileSystem } from "expo";
@@ -22,6 +22,7 @@ const PHOTOS_DIR = FileSystem.documentDirectory + "photos";
 
 export const FailureResults = props => {
   const latestPhoto = props.latestPhoto;
+  const resultsToShow = lowConfidenceResults(props.clarifaiData);
   return (
     <Container>
       <Header />
@@ -38,7 +39,7 @@ export const FailureResults = props => {
                 source={{ uri: `${PHOTOS_DIR}/${latestPhoto.name}` }}
               />
               <Body>
-                <Text>Sorry! You'll have to try again.</Text>
+                <Text>No high-confidence matches found.</Text>
                 <Text note>{new Date().toDateString()}</Text>
               </Body>
             </Left>
@@ -51,9 +52,9 @@ export const FailureResults = props => {
           </CardItem>
           <CardItem>
             <Body>
-              <Text>Your image results:</Text>
+              <Text>Here's what we've got for you:</Text>
 
-              {props.clarifaiData.map(concept => (
+              {resultsToShow.map(concept => (
                 <Text key={concept.id}>
                   {concept.name}: {concept.value}
                 </Text>

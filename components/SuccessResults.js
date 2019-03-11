@@ -8,19 +8,31 @@ import {
   Thumbnail,
   Text,
   Button,
-  Icon,
   Left,
   Body,
   Right
 } from "native-base";
-import { Image } from "react-native";
-
+import Icon from "react-native-vector-icons/FontAwesome";
+import { Image, Clipboard } from "react-native";
 import moment from "moment";
 
 import { FileSystem } from "expo";
 const PHOTOS_DIR = FileSystem.documentDirectory + "photos";
 
+function getHashtags(arr) {
+  return arr.map(x => `#${x.name}`).join(" ");
+}
+
 export const SuccessResults = props => {
+  state = {
+    text: getHashtags(props.clarifaiData)
+  };
+
+  writeToClipboard = async () => {
+    await Clipboard.setString(this.state.text);
+    alert("Copied to Clipboard!");
+  };
+
   const latestPhoto = props.latestPhoto;
   return (
     <Container>
@@ -62,19 +74,22 @@ export const SuccessResults = props => {
           </CardItem>
           <CardItem>
             <Left>
-              <Button transparent>
-                <Icon active name="thumbs-up" />
-                <Text>12 Likes</Text>
+              <Button
+                onPress={this.writeToClipboard}
+                title="Write to Clipboard"
+              >
+                <Text>Write to Clipboard</Text>
               </Button>
             </Left>
             <Body>
-              <Button transparent>
-                <Icon active name="chatbubbles" />
-                <Text>4 Comments</Text>
-              </Button>
+              <Icon.Button name="facebook" backgroundColor="#3b5998">
+                Share to Twitter
+              </Icon.Button>
             </Body>
             <Right>
-              <Text>11h ago</Text>
+              <Icon.Button name="instagram" backgroundColor="#833AB4">
+                Share to Instagram
+              </Icon.Button>
             </Right>
           </CardItem>
         </Card>

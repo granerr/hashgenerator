@@ -654,6 +654,11 @@
     pouchdb-collections "^1.0.1"
     tiny-queue "^0.2.1"
 
+"@micabe/react-native-share-instagram@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@micabe/react-native-share-instagram/-/react-native-share-instagram-1.1.0.tgz#c17f4cebd616c5eb6ecf68734fb48394ea7d3446"
+  integrity sha512-UzENLnM/URgynl8Z9XOR1Olehqg2BD1WR/D40D0pTNbW5hRdi3YUFkMR7m+bwxxvo791No+/wSinFPjmEDFsPw==
+
 "@react-navigation/core@3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-3.1.1.tgz#badf449ac7d2ae65b0f5aa1bf63a87e7888458d3"
@@ -2826,6 +2831,13 @@ expo@^32.0.6:
     uuid-js "^0.7.5"
     whatwg-fetch "^2.0.4"
 
+expokit@^32.0.7:
+  version "32.0.7"
+  resolved "https://registry.yarnpkg.com/expokit/-/expokit-32.0.7.tgz#8395bae17c53c469d5f749fd567efe2d88907cf7"
+  integrity sha512-nYLpffUxCj8pk11p+rdO0VZlR98mP6M3nzaGSr1dbrUgVtxtzOmAYPqEwFMNYp4vPviaVgCQ7LUTT5G6lJPPSw==
+  dependencies:
+    jsc-android "^224109.1.0"
+
 extend-shallow@^1.1.2:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/extend-shallow/-/extend-shallow-1.1.4.tgz#19d6bf94dfc09d76ba711f39b872d21ff4dd9071"
@@ -4204,6 +4216,11 @@ jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
   integrity sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
+
+jsc-android@^224109.1.0:
+  version "224109.1.0"
+  resolved "https://registry.yarnpkg.com/jsc-android/-/jsc-android-224109.1.0.tgz#9749ec92f1e284b3c09befe7c47cc6e60b1f0cdf"
+  integrity sha512-mhALFynePc/wJsUt9BJuH13mSK/dGWtBO/pcYwVV1I0A7iduyqy3fSoAt1b0yI+/B3TzlGyue/gqjPxsqG1HRQ==
 
 jsdom@^11.5.1:
   version "11.12.0"
@@ -5723,6 +5740,11 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-alarm@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-alarm/-/react-native-alarm-1.2.0.tgz#058fb0370e95a670d7aceb58bec515082101a13b"
+  integrity sha1-BY+wNw6VpnDXrOtYvsUVCCEBoTs=
+
 "react-native-alarms@git+https://github.com/ioddly/react-native-alarms.git":
   version "0.0.1"
   resolved "git+https://github.com/ioddly/react-native-alarms.git#c440c75950f9532aa31f4cc41e359fab42000e88"
@@ -5731,6 +5753,11 @@ react-native-branch@2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.2.5.tgz#4074dd63b4973e6397d9ce50e97b57c77a518e9d"
   integrity sha1-QHTdY7SXPmOX2c5Q6XtXx3pRjp0=
+
+react-native-calendar-events@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/react-native-calendar-events/-/react-native-calendar-events-1.7.0.tgz#6cd62c7d03e8884dc5c14ba05ef58e802ec68792"
+  integrity sha512-ePpAJ0MkqNVVcIdiFZinnaqRC+BSqT8GA1/hlSFUe+NIsct25eLGBXasJnUGLoyYmYeRCWjKoSzW127pS10SYw==
 
 react-native-drawer@2.5.1:
   version "2.5.1"
@@ -5831,6 +5858,15 @@ react-native-vector-icons@6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.1.0.tgz#770a3f8ced692d75deb3afbb9829195ceed1eedd"
   integrity sha512-1GF5I4VWgwnzBtVfAKNgEiR5ziHi5QaKL381wwApMzuiFgIJMNt5XIChuKwKoaiB86s+P5iMcYWxYCyENL96lA==
+  dependencies:
+    lodash "^4.0.0"
+    prop-types "^15.6.2"
+    yargs "^8.0.2"
+
+react-native-vector-icons@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.3.0.tgz#47a0c9e04e045c0ea0b9ca450e2af84e45c07b3f"
+  integrity sha512-3Rf77BC1BhCpHkCitq4hDAEyaAR7Won5qrHU3fBoZzkEsI5oFTCfvnMDYzCx7XDW5Xn0u/Yg7JD9USynAOYVYA==
   dependencies:
     lodash "^4.0.0"
     prop-types "^15.6.2"
