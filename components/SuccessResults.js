@@ -15,7 +15,6 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Image, Clipboard } from "react-native";
 import moment from "moment";
-
 import { FileSystem } from "expo";
 const PHOTOS_DIR = FileSystem.documentDirectory + "photos";
 
@@ -28,12 +27,13 @@ export const SuccessResults = props => {
     text: getHashtags(props.clarifaiData)
   };
 
+  const latestPhoto = props.latestPhoto;
+
   writeToClipboard = async () => {
     await Clipboard.setString(this.state.text);
     alert("Copied to Clipboard!");
   };
 
-  const latestPhoto = props.latestPhoto;
   return (
     <Container>
       <Header />
@@ -52,6 +52,7 @@ export const SuccessResults = props => {
               <Body>
                 <Text>Success!</Text>
                 <Text note>{new Date().toDateString()}</Text>
+                <Text note>{moment().format("MMMM Do YYYY, h:mm:ss a")}</Text>
               </Body>
             </Left>
           </CardItem>
@@ -63,31 +64,36 @@ export const SuccessResults = props => {
           </CardItem>
           <CardItem>
             <Body>
-              <Text>Your image results:</Text>
-
+              <Text>Your image hashtags:</Text>
               {props.clarifaiData.map(concept => (
                 <Text key={concept.id}>
-                  {concept.name}: {concept.value}
+                  #{concept.name}: {concept.value * 100}% confidence
                 </Text>
               ))}
             </Body>
           </CardItem>
           <CardItem>
             <Left>
-              <Button
+              <Icon.Button
                 onPress={this.writeToClipboard}
                 title="Write to Clipboard"
+                name="clipboard"
+                backgroundColor="#3b5998"
               >
-                <Text>Write to Clipboard</Text>
-              </Button>
+                Copy To Clipboard
+              </Icon.Button>
             </Left>
             <Body>
-              <Icon.Button name="facebook" backgroundColor="#3b5998">
+              <Icon.Button name="twitter" backgroundColor="#1da1f2">
                 Share to Twitter
               </Icon.Button>
             </Body>
             <Right>
-              <Icon.Button name="instagram" backgroundColor="#833AB4">
+              <Icon.Button
+                name="instagram"
+                backgroundColor="#833AB4"
+                onPress={this.shareToIg}
+              >
                 Share to Instagram
               </Icon.Button>
             </Right>

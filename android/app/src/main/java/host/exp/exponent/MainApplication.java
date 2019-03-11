@@ -34,6 +34,7 @@ import expolib_v1.okhttp3.OkHttpClient;
 
 // Needed for `react-native link`
 // import com.facebook.react.ReactApplication;
+import com.reactlibrary.RNReactNativeSharingWinstagramPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.calendarevents.CalendarEventsPackage;
 import com.ioddly.alarms.AlarmPackage;
@@ -54,6 +55,7 @@ public class MainApplication extends ExpoApplication implements AppLoaderPackage
 
         // Needed for `react-native link`
         // new MainReactPackage(),
+            new RNReactNativeSharingWinstagramPackage(),
             new VectorIconsPackage(),
             new CalendarEventsPackage(),
             new AlarmPackage(),
